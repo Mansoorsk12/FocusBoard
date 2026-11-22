@@ -1,0 +1,268 @@
+/* Focus Notes carousel (Figma frames 15:2, 15:30, 15:58 — 1106 x 152) */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 152px;
+  padding: 28px 40px;
+  border-radius: 16px;
+  color: #fff;
+  overflow: hidden;
+  background: linear-gradient(135deg, #7064fd 0%, #5e52e8 50%, #4d40d4 100%);
+  box-shadow: 0 12px 28px -14px rgba(77, 64, 212, 0.55);
+}
+.hero-body {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hero-eyebrow {
+  display: flex;
+  gap: 24px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.78);
+}
+.hero-slide {
+  margin: 6px 0 14px;
+  animation: hero-fade 0.3s ease;
+}
+.hero-slide h2 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.hero-slide p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+}
+.hero-dots {
+  display: flex;
+  gap: 8px;
+  margin: -10px 0;
+}
+.hero-dots button {
+  display: flex;
+  align-items: center;
+  width: 54px;
+  height: 44px; /* big tap area */
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.hero-dots button span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.35);
+  transition: background 0.2s;
+}
+.hero-dots button.active span {
+  background: #fff;
+}
+.hero-dots button:focus-visible,
+.hero-arrow:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Floating card on the right */
+.hero-card-wrap {
+  position: absolute;
+  right: 190px;
+  top: 50%;
+  width: 196px;
+  height: 92px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.hero-card-back {
+  position: absolute;
+  inset: 0;
+  transform: translate(-16px, 10px) rotate(-2deg);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.18);
+}
+.hero-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #fff;
+  color: #1f2340;
+  transform: rotate(4deg);
+  box-shadow: 0 14px 28px -10px rgba(30, 20, 120, 0.45);
+  animation: hero-card-in 0.3s ease;
+}
+.hero-card-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #e1f8f1;
+  color: #1f9d79;
+}
+.hero-card-text {
+  flex: 1;
+  min-width: 0;
+}
+.hero-card-text small {
+  display: block;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #8a90a6;
+}
+.hero-card-text strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hero-card-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.hero-card-progress .track {
+  flex: 1;
+  height: 5px;
+  border-radius: 5px;
+  background: #e6e4fb;
+  overflow: hidden;
+}
+.hero-card-progress .track span {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  background: #5b4fe9;
+}
+.hero-card-progress em {
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 600;
+  color: #5b4fe9;
+}
+
+/* Arrows */
+.hero-arrows {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 10px;
+  flex: none;
+}
+.hero-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  transition: background 0.2s, transform 0.15s;
+}
+.hero-arrow:hover {
+  background: rgba(255, 255, 255, 0.34);
+}
+.hero-arrow-next {
+  background: #fff;
+  color: #5b4fe9;
+}
+.hero-arrow-next:hover {
+  background: #f0eeff;
+}
+.hero-arrow:active {
+  transform: scale(0.94);
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes hero-card-in {
+  from {
+    opacity: 0;
+    transform: rotate(4deg) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(4deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide,
+  .hero-card {
+    animation: none;
+  }
+}
+
+/* Tablet: card moves closer to the arrows */
+@media (max-width: 1030px) {
+  .hero {
+    padding: 24px 28px;
+  }
+  .hero-card-wrap {
+    right: 120px;
+    width: 176px;
+  }
+  .hero-slide h2 {
+    font-size: 24px;
+  }
+}
+
+/* Phone: stack the text, hide the floating card, keep arrows reachable */
+@media (max-width: 650px) {
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 20px;
+    border-radius: 14px;
+  }
+  .hero-card-wrap {
+    display: none;
+  }
+  .hero-slide h2 {
+    font-size: 22px;
+  }
+  .hero-slide p {
+    font-size: 13px;
+  }
+  .hero-dots button {
+    width: 44px;
+  }
+  .hero-arrows {
+    position: absolute;
+    right: 16px;
+    bottom: 12px;
+  }
+}
