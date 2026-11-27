@@ -80,4 +80,3 @@ GitHub: [Mansoorsk12](https://github.com/Mansoorsk12)
 
 ---
 
-⭐ If you find this project useful, consider giving it a star!
